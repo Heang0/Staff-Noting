@@ -31,7 +31,8 @@ export default function Sidebar({ onClose }: { onClose?: () => void }) {
   } else {
     navItems.push({ icon: Home, label: 'ផ្ទាំងគ្រប់គ្រង', href: '/dashboard' });
     navItems.push({ icon: Calendar, label: 'បញ្ជីអវត្តមាន', href: '/attendance' });
-    navItems.push({ icon: FileText, label: 'ស្នើសុំថវិកា', href: '/budgets' });
+    navItems.push({ icon: FileText, label: 'សង្ខេបអវត្តមាន', href: '/absent-summary' });
+    navItems.push({ icon: CreditCard, label: 'ស្នើសុំថវិកា', href: '/budgets' });
   }
 
   return (
