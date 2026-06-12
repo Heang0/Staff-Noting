@@ -82,6 +82,15 @@ export default function Attendance() {
   const handleCellClick = async (staffId: string, day: number) => {
     if (!user || user.uid !== staffId) return;
 
+    const selectedDate = new Date(year, month, day);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (selectedDate > today) {
+      alert("អ្នកមិនអាចកត់ត្រាការឈប់សម្រាកសម្រាប់ថ្ងៃអនាគតបានទេ! (Cannot select future dates)");
+      return;
+    }
+
     const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
     const key = `${staffId}_${dateStr}`;
     const cellData = attendance[key];
