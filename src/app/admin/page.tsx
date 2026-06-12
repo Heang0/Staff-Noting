@@ -25,7 +25,7 @@ export default function AdminDashboard() {
     try {
       const budgetQ = query(collection(db, 'budget_requests'), where('status', '==', activeTab));
       const budgetSnap = await getDocs(budgetQ);
-      const items = budgetSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const items: any[] = budgetSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       
       // Sort client-side by date if it exists
       items.sort((a, b) => (b.createdAt?.toMillis() || 0) - (a.createdAt?.toMillis() || 0));
